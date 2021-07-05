@@ -17,7 +17,7 @@ protocol TrackCellDelegate {
 class TrackCell: UITableViewCell {
 
     var delegate: TrackCellDelegate?
-    static let identifier = "TrackCell"
+    static let identifier = K.TableViewCellID.TRACK_CELL_ID
     
     @IBOutlet var containerView: UIView!
     @IBOutlet var titleLabel: UILabel!
@@ -48,7 +48,7 @@ class TrackCell: UITableViewCell {
     }
     
     @IBAction func pauseOrResumeTapped(_ sender: AnyObject) {
-      if(pauseButton.titleLabel?.text == "Pause") {
+        if(pauseButton.titleLabel?.text == K.Title.ButtonTitle.PAUSE) {
         delegate?.pauseTapped(self)
       } else {
         delegate?.resumeTapped(self)
@@ -65,9 +65,9 @@ class TrackCell: UITableViewCell {
       // Non-nil Download object means a download is in progress.
       if let download = download {
         showDownloadControls = true
-        let title = download.isDownloading ? "Pause" : "Resume"
+        let title = download.isDownloading ? K.Title.ButtonTitle.PAUSE : K.Title.ButtonTitle.RESUME
         pauseButton.setTitle(title, for: .normal)
-        progressLabel.text = download.isDownloading ? "Downloading..." : "Paused"
+        progressLabel.text = download.isDownloading ? K.TextMessage.DOWNLOADING : K.TextMessage.PAUSED
       }
       pauseButton.isHidden = !showDownloadControls
       cancelButton.isHidden = !showDownloadControls
@@ -83,6 +83,6 @@ class TrackCell: UITableViewCell {
     /// Function to update the progress bar
     func updateDisplay(progress: Float, totalSize : String) {
       progressView.progress = progress
-      progressLabel.text = String(format: "%.1f%% of %@", progress * 100, totalSize)
+        progressLabel.text = String(format: K.StringFormatter.TRACK_PROGRESS_LABEL, progress * 100, totalSize)
     }
 }

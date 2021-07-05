@@ -91,7 +91,7 @@ class SearchViewController: UIViewController {
     downloadService.downloadsSession = downloadsSession
 
     //register the cell in the tableView and set its delegate and datasource
-    tableView.register(UINib(nibName: "TrackCell", bundle: nil), forCellReuseIdentifier: TrackCell.identifier)
+    tableView.register(UINib(nibName: K.XibWithName.TRACK_CELL, bundle: nil), forCellReuseIdentifier: TrackCell.identifier)
     tableView.delegate = self
     tableView.dataSource = self
   }
@@ -114,7 +114,7 @@ class SearchViewController: UIViewController {
           }
           
           if !errorMessage.isEmpty {
-            print("Search error: " + errorMessage)
+            print(K.ErrorMessage.SEARCH_ERROR + errorMessage)
           }
         }
     }
@@ -144,7 +144,7 @@ extension SearchViewController: UISearchBarDelegate {
       }
       
       if !errorMessage.isEmpty {
-        print("Search error: " + errorMessage)
+        print(K.ErrorMessage.SEARCH_ERROR + errorMessage)
       }
     }
   }
@@ -278,11 +278,11 @@ extension SearchViewController: URLSessionDownloadDelegate {
       try fileManager.copyItem(at: location, to: destinationURL)
       download?.track.downloaded = true
     } catch let error {
-      print("Could not copy file to disk: \(error.localizedDescription)")
+        print("\(K.ErrorMessage.FILE_COPY_ERROR) \(error.localizedDescription)")
     }
     //get the index of the downloaded track, to update its UI in the tableView
     if let index = download?.track.index {
-      print("the index is -> \(index)")
+      //print("the index is -> \(index)")
       //print("the index is -> \(download?.track.name)")
       DispatchQueue.main.async { [weak self] in
         self?.tableView.reloadRows(at: [IndexPath(row: index, section: 0)],

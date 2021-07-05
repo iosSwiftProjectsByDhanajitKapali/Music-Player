@@ -21,6 +21,7 @@
 		013F9561268F6FC500B6CE05 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013F9560268F6FC500B6CE05 /* Download.swift */; };
 		013F9569268F70C200B6CE05 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013F9567268F70C200B6CE05 /* TrackCell.swift */; };
 		013F956A268F70C200B6CE05 /* TrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 013F9568268F70C200B6CE05 /* TrackCell.xib */; };
+		013F95762692E02700B6CE05 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013F95752692E02700B6CE05 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		013F9560268F6FC500B6CE05 /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
 		013F9567268F70C200B6CE05 /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		013F9568268F70C200B6CE05 /* TrackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackCell.xib; sourceTree = "<group>"; };
+		013F95752692E02700B6CE05 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				013F94FD268F5B0200B6CE05 /* Music Player */,
+				013F94FE268F5B0200B6CE05 /* AppDelegate.swift */,
+				013F9500268F5B0200B6CE05 /* SceneDelegate.swift */,
 				013F9514268F5B0800B6CE05 /* Music PlayerTests */,
 				013F951F268F5B0800B6CE05 /* Music PlayerUITests */,
 				013F94FC268F5B0200B6CE05 /* Products */,
@@ -111,9 +115,8 @@
 		013F94FD268F5B0200B6CE05 /* Music Player */ = {
 			isa = PBXGroup;
 			children = (
-				013F94FE268F5B0200B6CE05 /* AppDelegate.swift */,
-				013F9500268F5B0200B6CE05 /* SceneDelegate.swift */,
 				013F950C268F5B0700B6CE05 /* Info.plist */,
+				013F95742692E00B00B6CE05 /* Constants */,
 				013F9566268F709C00B6CE05 /* Track Cell */,
 				013F9557268F6FA800B6CE05 /* Model */,
 				013F9540268F5D0F00B6CE05 /* Networking */,
@@ -184,6 +187,14 @@
 				013F9568268F70C200B6CE05 /* TrackCell.xib */,
 			);
 			path = "Track Cell";
+			sourceTree = "<group>";
+		};
+		013F95742692E00B00B6CE05 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				013F95752692E02700B6CE05 /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,6 +336,7 @@
 				013F9561268F6FC500B6CE05 /* Download.swift in Sources */,
 				013F9559268F6FB800B6CE05 /* Track.swift in Sources */,
 				013F9569268F70C200B6CE05 /* TrackCell.swift in Sources */,
+				013F95762692E02700B6CE05 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

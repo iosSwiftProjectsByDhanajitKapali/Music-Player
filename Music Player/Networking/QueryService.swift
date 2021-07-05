@@ -35,8 +35,8 @@ class QueryService {
     dataTask?.cancel()
         
     //create the URL according to base URL and Query
-    if var urlComponents = URLComponents(string: "https://itunes.apple.com/search") {
-      urlComponents.query = "media=music&entity=song&term=\(searchTerm)"
+    if var urlComponents = URLComponents(string: K.URLString.BaseURL.ITUNES) {
+        urlComponents.query = K.URLString.QueryURL.ITUNES + searchTerm 
       // get the URL created above
       guard let url = urlComponents.url else {
         return
@@ -49,7 +49,7 @@ class QueryService {
         }
         // Error found
         if let error = error {
-          self?.errorMessage += "DataTask error: " + error.localizedDescription + "\n"
+            self?.errorMessage += K.ErrorMessage.DATA_TASK_ERROR + error.localizedDescription + "\n"
         } else if let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 {
           self?.updateSearchResults(data)
           
@@ -77,11 +77,11 @@ class QueryService {
     do {
       response = try JSONSerialization.jsonObject(with: data, options: []) as? JSONDictionary
     } catch let parseError as NSError {
-      errorMessage += "JSONSerialization error: \(parseError.localizedDescription)\n"
+        errorMessage += K.ErrorMessage.JSON_SERIALIZATION_ERROR + "\(parseError.localizedDescription)\n"
       return
     }
     
-    guard let array = response!["results"] as? [Any] else {
+    guard let array = response![K.DictionaryKey.RESULTS] as? [Any] else {
       errorMessage += "Dictionary does not contain results key\n"
       return
     }
@@ -90,14 +90,14 @@ class QueryService {
     
     for trackDictionary in array {
       if let trackDictionary = trackDictionary as? JSONDictionary,
-        let previewURLString = trackDictionary["previewUrl"] as? String,
+         let previewURLString = trackDictionary[K.DictionaryKey.PREVIEW_URL] as? String,
         let previewURL = URL(string: previewURLString),
-        let name = trackDictionary["trackName"] as? String,
-        let artist = trackDictionary["artistName"] as? String {
+        let name = trackDictionary[K.DictionaryKey.TRACK_NAME] as? String,
+        let artist = trackDictionary[K.DictionaryKey.ARTIST_NAME] as? String {
           tracks.append(Track(name: name, artist: artist, previewURL: previewURL, index: index))
           index += 1
       } else {
-        errorMessage += "Problem parsing trackDictionary\n"
+        errorMessage += K.ErrorMessage.DICTIONARY_PARSING_ERROR
       }
     }
   }
