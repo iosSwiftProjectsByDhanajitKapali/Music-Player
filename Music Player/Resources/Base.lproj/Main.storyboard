@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="Music_Player" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Taylor Swift" borderStyle="roundedRect" placeholder="Search Songs" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tv2-oq-dhQ" customClass="Sea">
+                                <rect key="frame" x="0.0" y="44" width="369" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="XFM-Da-Ysh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M3m-LO-BXI">
+                                <rect key="frame" x="374" y="44" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="2Mq-eW-DrS"/>
+                                    <constraint firstAttribute="height" constant="40" id="MxQ-Jv-knd"/>
+                                </constraints>
+                                <state key="normal" image="search-128"/>
+                                <connections>
+                                    <action selector="searchButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="opj-Bh-1Cx"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DFf-oG-AJH">
+                                <rect key="frame" x="0.0" y="84" width="414" height="778"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tv2-oq-dhQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="2eD-aT-eQV"/>
+                            <constraint firstItem="DFf-oG-AJH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MmN-uv-AgU"/>
+                            <constraint firstItem="M3m-LO-BXI" firstAttribute="leading" secondItem="tv2-oq-dhQ" secondAttribute="trailing" constant="5" id="UZx-KY-1i3"/>
+                            <constraint firstItem="DFf-oG-AJH" firstAttribute="top" secondItem="tv2-oq-dhQ" secondAttribute="bottom" id="Yco-KU-8YV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="M3m-LO-BXI" secondAttribute="trailing" id="fdz-2w-Ra5"/>
+                            <constraint firstItem="tv2-oq-dhQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lfc-Cz-WTT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DFf-oG-AJH" secondAttribute="trailing" id="nNa-GC-GyO"/>
+                            <constraint firstItem="M3m-LO-BXI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="nVM-2l-a8p"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DFf-oG-AJH" secondAttribute="bottom" id="uBk-cM-uL2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchBar" destination="tv2-oq-dhQ" id="o7Q-Y3-7Wm"/>
+                        <outlet property="tableView" destination="DFf-oG-AJH" id="EW5-i2-y8N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3" y="81"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="search-128" width="128" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
