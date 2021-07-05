@@ -32,10 +32,10 @@ class SearchViewController: UIViewController {
   // MARK: - Variables And Properties
   //
   lazy var downloadsSession: URLSession = {
-    //let configuration = URLSessionConfiguration.default
-    let configuration =
-      URLSessionConfiguration.background(withIdentifier:
-                                           "com.dhanajitkapali.Music-Player")
+    let configuration = URLSessionConfiguration.default
+//    let configuration =
+//      URLSessionConfiguration.background(withIdentifier:
+//                                           "com.dhanajitkapali.Music-Player")
 
     return URLSession(configuration: configuration,
                       delegate: self,
